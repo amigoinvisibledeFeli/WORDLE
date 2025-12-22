@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wordle Bonito</title>
+<style>
+  body{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-image: url("muneco.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: white;
+}
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+  }
+  #board { margin: 20px auto; }
+  .row { display: flex; justify-content: center; }
+  .cell {
+    width: 60px; height: 60px;
+    border: 2px solid #3a3a3c;
+    margin: 4px;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center; justify-content: center;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+  }
+  .green { background: #538d4e; border-color: #538d4e; }
+  .yellow { background: #b59f3b; border-color: #b59f3b; }
+  .gray { background: #3a3a3c; border-color: #3a3a3c; }
+  input { padding: 8px; font-size: 18px; }
+  button { padding: 8px 12px; font-size: 17px; margin-left: 8px; cursor: pointer; }
+  .message { margin-top: 15px; }
+</style>
+</head>
+<body>
+
+<h1>🎉 Wordle De Feli!</h1>
+<div id="board"></div>
+<input id="guess" maxlength="7" placeholder="PALABRA">
+<button onclick="checkGuess()">Probar</button>
+<p class="message" id="message"></p>
+
+<script>
+  const WORD = "CROCHET"; 
+  const MAX_TRIES = 6;
+  let currentTry = 0;
+  const board = document.getElementById("board");
+
+  for (let i = 0; i < MAX_TRIES; i++) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    for (let j = 0; j < 7; j++) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      row.appendChild(cell);
+    }
+    board.appendChild(row);
+  }
+
+  function checkGuess() {
+    const guessInput = document.getElementById("guess");
+    const guess = guessInput.value.toUpperCase();
+    if (guess.length !== 7) {
+      alert("SON 7 LETRAS LOCO");
+      return;
+    }
+    const rowCells = board.children[currentTry].children;
+    for (let i = 0; i < 7; i++) {
+      rowCells[i].textContent = guess[i];
+      if (guess[i] === WORD[i]) rowCells[i].classList.add("green");
+      else if (WORD.includes(guess[i])) rowCells[i].classList.add("yellow");
+      else rowCells[i].classList.add("gray");
+    }
+    if (guess === WORD) {
+      document.getElementById("message").textContent = "¡Ganaste! 🎉 .  Ahora bien, fijate quien tiene algo con Crochet 🧐...";
+      guessInput.disabled = true;
+    }
+    currentTry++;
+    guessInput.value = "";
+    if (currentTry === MAX_TRIES && guess !== WORD) {
+      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen 🥸. Fijate de jugar de nuevo sabiendo que, el outfit de tu amigo invisible tiene algo en común con el muñeco..." ;
+      guessInput.disabled = true;
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
