@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Wordle Bonito</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordle Para Feli!</title>
 <style>
   body{
   font-family: Arial, sans-serif;
@@ -40,6 +41,22 @@
   input { padding: 8px; font-size: 18px; }
   button { padding: 8px 12px; font-size: 17px; margin-left: 8px; cursor: pointer; }
   .message { margin-top: 15px; }
+  @media (max-width: 480px) {
+  .cell {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  input {
+    width: 180px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}
 </style>
 </head>
 <body>
@@ -96,6 +113,7 @@
 
 </body>
 </html>
+
 
 
 
