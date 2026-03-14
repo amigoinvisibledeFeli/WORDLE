@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wordle Para Feli!</title>
+<title>Wordle Para Lay!</title>
 <style>
   body{
   font-family: Arial, sans-serif;
@@ -61,7 +61,7 @@
 </head>
 <body>
 
-<h1>🎉 Wordle De Feli!</h1>
+<h1>🎉 Wordle De Lay!</h1>
 <div id="board"></div>
 <input id="guess" maxlength="7" placeholder="PALABRA">
 <button onclick="checkGuess()">Probar</button>
@@ -99,13 +99,13 @@
       else rowCells[i].classList.add("gray");
     }
     if (guess === WORD) {
-      document.getElementById("message").textContent = "¡Ganaste! 🎉 .  Ahora bien, fijate quien tiene algo con Crochet 🧐...";
+      document.getElementById("message").textContent = "¡Ganaste! 🎉 .  Ahora bien, me vas a mandar un mensaje?";
       guessInput.disabled = true;
     }
     currentTry++;
     guessInput.value = "";
     if (currentTry === MAX_TRIES && guess !== WORD) {
-      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen 🥸. Fijate de jugar de nuevo sabiendo que el outfit de tu amigo invisible tiene algo en común con el muñeco..." ;
+      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen 🥸. No te acordas de lo que hablamos? Pensa en la apuesta..." ;
       guessInput.disabled = true;
     }
   }
