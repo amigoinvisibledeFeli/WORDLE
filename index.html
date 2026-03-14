@@ -6,15 +6,22 @@
 <title>Wordle Para Lay!</title>
 <style>
   body{
-  font-family: Arial, sans-serif;
+font-family: Arial, sans-serif;
   text-align: center;
   background-image: url("muneco.jpeg");
-  background-size: contain;
-  background-position: center top;
-  background-color: #121213;
+  
+  /* Esto hace que la imagen cubra todo el fondo */
+  background-size: cover; 
+  
+  /* Esto es la clave: centra la imagen para que el "beso" de los elefantes 
+     sea siempre el punto focal, cortando solo los bordes exteriores si es necesario */
+  background-position: center 20%; 
+  
   background-repeat: no-repeat;
-  background-attachment: no-repeat;
+  background-attachment: fixed;
   color: white;
+  margin: 0;
+  height: 100vh;
 }
   body::before {
     content: "";
@@ -69,7 +76,7 @@
 <p class="message" id="message"></p>
 
 <script>
-  const WORD = "CROCHET"; 
+  const WORD = "FALOPIO"; 
   const MAX_TRIES = 6;
   let currentTry = 0;
   const board = document.getElementById("board");
