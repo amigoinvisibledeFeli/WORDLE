@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wordle Para Lay!</title>
+<title>Wordle Para P!</title>
 <style>
   body{
 font-family: Arial, sans-serif;
@@ -69,14 +69,14 @@ font-family: Arial, sans-serif;
 </head>
 <body>
 
-<h1>🎉 Wordle De Lay!</h1>
+<h1>🎉 Wordle De P!</h1>
 <div id="board"></div>
 <input id="guess" maxlength="7" placeholder="PALABRA">
 <button onclick="checkGuess()">Probar</button>
 <p class="message" id="message"></p>
 
 <script>
-  const WORD = "FALOPIO"; 
+  const WORD = "NOCHE"; 
   const MAX_TRIES = 6;
   let currentTry = 0;
   const board = document.getElementById("board");
@@ -84,7 +84,7 @@ font-family: Arial, sans-serif;
   for (let i = 0; i < MAX_TRIES; i++) {
     const row = document.createElement("div");
     row.classList.add("row");
-    for (let j = 0; j < 7; j++) {
+    for (let j = 0; j < 5; j++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
       row.appendChild(cell);
@@ -95,25 +95,25 @@ font-family: Arial, sans-serif;
   function checkGuess() {
     const guessInput = document.getElementById("guess");
     const guess = guessInput.value.toUpperCase();
-    if (guess.length !== 7) {
-      alert("SON 7 LETRAS LOCO");
+    if (guess.length !== 5) {
+      alert("SON 5 LETRAS LOCO");
       return;
     }
     const rowCells = board.children[currentTry].children;
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 5; i++) {
       rowCells[i].textContent = guess[i];
       if (guess[i] === WORD[i]) rowCells[i].classList.add("green");
       else if (WORD.includes(guess[i])) rowCells[i].classList.add("yellow");
       else rowCells[i].classList.add("gray");
     }
     if (guess === WORD) {
-      document.getElementById("message").textContent = "¡Ganaste! 🎉 .  Ahora bien, me vas a mandar un mensaje?";
+      document.getElementById("message").textContent = "¡Ganaste! 🎉 .  Ahora bien, sumas?";
       guessInput.disabled = true;
     }
     currentTry++;
     guessInput.value = "";
     if (currentTry === MAX_TRIES && guess !== WORD) {
-      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen 🥸. No te acordas de lo que hablamos? Pensa en la apuesta..." ;
+      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen, pense que eras más capaz. Pensa en el cabezon... ¿Pero vos estas loco?" ;
       guessInput.disabled = true;
     }
   }
