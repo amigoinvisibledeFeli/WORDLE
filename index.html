@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wordle Para P!</title>
+<title>Wordle Para Rodri!</title>
 <style>
   body{
 font-family: Arial, sans-serif;
@@ -100,7 +100,7 @@ font-family: Arial, sans-serif;
       return;
     }
     const rowCells = board.children[currentTry].children;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < lenght("PointSmart"); i++) {
       rowCells[i].textContent = guess[i];
       if (guess[i] === WORD[i]) rowCells[i].classList.add("green");
       else if (WORD.includes(guess[i])) rowCells[i].classList.add("yellow");
