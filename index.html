@@ -84,7 +84,7 @@ font-family: Arial, sans-serif;
   for (let i = 0; i < MAX_TRIES; i++) {
     const row = document.createElement("div");
     row.classList.add("row");
-    for (let j = 0; j < 5; j++) {
+    for (let j = 0; j < 10; j++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
       row.appendChild(cell);
@@ -95,8 +95,8 @@ font-family: Arial, sans-serif;
   function checkGuess() {
     const guessInput = document.getElementById("guess");
     const guess = guessInput.value.toUpperCase();
-    if (guess.length !== 5) {
-      alert("SON 5 LETRAS LOCO");
+    if (guess.length !== 10) {
+      alert("SON 10 LETRAS LOCO");
       return;
     }
     const rowCells = board.children[currentTry].children;
@@ -107,13 +107,13 @@ font-family: Arial, sans-serif;
       else rowCells[i].classList.add("gray");
     }
     if (guess === WORD) {
-      document.getElementById("message").textContent = "¡Ganaste! 🎉 .  Ahora bien, sumas?";
+      document.getElementById("message").textContent = "¡Ganaste! 🎉 Puto el que lee xd";
       guessInput.disabled = true;
     }
     currentTry++;
     guessInput.value = "";
     if (currentTry === MAX_TRIES && guess !== WORD) {
-      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen, pense que eras más capaz. Pensa en el cabezon... ¿Pero vos estas loco?" ;
+      document.getElementById("message").textContent = " Mal ahí, no pudiste pegarle y no entendiste la pista de la imagen, pensa: ¿Qué nos unio a vos, Facu y SKuvi??" ;
       guessInput.disabled = true;
     }
   }
